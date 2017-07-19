@@ -20,3 +20,4 @@ while True:
 GPIO.cleanup()
 
 os.system("omxplayer --refresh ps.mp4")
+os.system("/opt/retropie/emulators/retroarch/bin/retroarch")
