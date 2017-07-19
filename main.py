@@ -11,10 +11,11 @@ sw_status = 1
  
 while True:
     sw_status = GPIO.input(button_pin)
-#    if sw_status == 0:
-#        print("OK!")
-#        break
-    print(sw_status)
+    if sw_status == 1:
+        print("OK!")
+        break
     time.sleep(0.03)
  
 GPIO.cleanup()
+
+os.system("omxplayer --refresh ps.mp4")
