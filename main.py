@@ -1,13 +1,19 @@
-import wiringpi
+#!/usr/bin/python 
+# coding:utf-8 
 import time
-button_pin = 21
-
-wiringpi.wiringPiSetupGpio()
-wiringpi.pinMode( button_pin, 0 )
-wiringpi.pullUpDnControl( button_pin, 2 )
-
+import RPi.GPIO as GPIO
+ 
+GPIO.setmode(GPIO.BCM)
+ 
+GPIO.setup(21,GPIO.IN,pull_up_down=GPIO.PUD_UP)
+ 
+sw_status = 1
+ 
 while True:
-    if( wiringpi.digitalRead(button_pin) == 0 ):
-        print ("ON")
-    else:
-        print ("OFF")
+    sw_status = GPIO.input(18)
+    if sw_status == 0:
+        print("OK!")
+        break
+    time.sleep(0.03)
+ 
+GPIO.cleanup()
