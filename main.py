@@ -22,7 +22,7 @@ while True:
 GPIO.cleanup()
 
 os.system("omxplayer --refresh ps.mp4")
-#os.system("/opt/retropie/emulators/retroarch/bin/retroarch -L /opt/retropie/libretrocores/lr-pcsx-rearmed/libretro.so ~/RetroPie/roms/psx/kurassyu_01.iso")
+os.system("/opt/retropie/emulators/retroarch/bin/retroarch -L /opt/retropie/libretrocores/lr-pcsx-rearmed/libretro.so ~/RetroPie/roms/psx/kurassyu_01.iso")
 #os.system("/opt/retropie/emulators/retroarch/bin/retroarch -L /opt/retropie/libretrocores/lr-pcsx-rearmed/libretro.so ~/RetroPie/roms/psx/ace2_01.iso")
-os.system("/opt/retropie/emulators/retroarch/bin/retroarch --fullscreen -L /opt/retropie/libretrocores/lr-pcsx-rearmed/libretro.so ~/RetroPie/roms/psx/doko_01.iso")
+#os.system("/opt/retropie/emulators/retroarch/bin/retroarch --fullscreen -L /opt/retropie/libretrocores/lr-pcsx-rearmed/libretro.so ~/RetroPie/roms/psx/doko_01.iso")
 os.system("setterm -cursor on")
