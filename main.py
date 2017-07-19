@@ -10,6 +10,7 @@ GPIO.setup(button_pin,GPIO.IN,pull_up_down=GPIO.PUD_UP)
  
 sw_status = 1
 
+os.system("setterm -cursor off")
 os.system("clear")
  
 while True:
@@ -22,3 +23,4 @@ GPIO.cleanup()
 
 os.system("omxplayer --refresh ps.mp4")
 os.system("/opt/retropie/emulators/retroarch/bin/retroarch -L /opt/retropie/libretrocores/lr-pcsx-rearmed/libretro.so ~/RetroPie/roms/psx/kurassyu_01.iso")
+os.system("setterm -cursor on")
