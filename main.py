@@ -5,7 +5,7 @@ import RPi.GPIO as GPIO
  
 GPIO.setmode(GPIO.BCM)
 button_pin = 21
-GPIO.setup(button_pin,GPIO.IN,pull_up_down=GPIO.PUD_UP)
+GPIO.setup(button_pin,GPIO.IN,pull_up_down=GPIO.PUD_DOWN)
  
 sw_status = 1
  
