@@ -52,6 +52,7 @@ GPIO.output(led_green_pin,GPIO.HIGH)
 FNULL = open(os.devnull, 'w')
 
 os.system("omxplayer --refresh ps.mp4")
+os.system("clear")
 
 # These are blocking codes
 #os.system("/opt/retropie/emulators/retroarch/bin/retroarch -L /opt/retropie/libretrocores/lr-pcsx-rearmed/libretro.so ~/RetroPie/roms/psx/kurassyu_01.iso")
@@ -104,7 +105,6 @@ while continue_reading:
         reader_count += 1
 
         if reader_count > 7:
-            print "OK!"
             continue_reading = False
 
 ########################################
