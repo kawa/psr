@@ -17,8 +17,10 @@ sw_status = 1
 
 os.system("setterm -cursor off")
 os.system("clear")
- 
+
+time.sleep(6);
 GPIO.output(led_red_pin,GPIO.HIGH)
+
 while True:
     sw_status = GPIO.input(button_pin)
     if sw_status == 1:
