@@ -45,7 +45,7 @@ while continue_reading:
         # Print UID
         print "Card read UID: "+str(uid[0])+","+str(uid[1])+","+str(uid[2])+","+str(uid[3])
 
-        count++
+        count += 1
 
         if count > 7
             global continue_reading
