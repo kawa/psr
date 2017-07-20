@@ -26,8 +26,8 @@ sw_status = 1
 ######## PREPARE RED LED ###############
 ########################################
 
-# os.system("setterm -cursor off")
-# os.system("clear")
+os.system("setterm -cursor off")
+os.system("clear")
 
 GPIO.output(led_red_pin,GPIO.HIGH)
 
@@ -71,6 +71,8 @@ def end_read(signal,frame):
     global continue_reading
     print "Ctrl+C captured, ending read."
     continue_reading = False
+    process.send_signal(signal.SIGINT)
+    process.wait()
     GPIO.cleanup()
 
 # Hook the SIGINT
@@ -110,10 +112,9 @@ while continue_reading:
 ######## RFID SCAN! PLAY GAME 2 ########
 ########################################
 
-# process.send_signal(signal.SIGINT)
-# process.wait()
+process.send_signal(signal.SIGINT)
+process.wait()
 # os.system("/opt/retropie/emulators/retroarch/bin/retroarch --fullscreen -L /opt/retropie/libretrocores/lr-pcsx-rearmed/libretro.so ~/RetroPie/roms/psx/doko_01.iso")
 
-# os.system("setterm -cursor on")
-
+os.system("setterm -cursor on")
 GPIO.cleanup()
