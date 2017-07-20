@@ -112,8 +112,11 @@ while continue_reading:
 ########################################
 
 process.send_signal(signal.SIGINT)
+os.system("clear")
 process.wait()
+os.system("clear")
 process = Popen(["/opt/retropie/emulators/retroarch/bin/retroarch", "-L", "/opt/retropie/libretrocores/lr-pcsx-rearmed/libretro.so", "/home/pi/RetroPie/roms/psx/doko_01.iso"], stdout=FNULL, stderr=subprocess.STDOUT)
+os.system("clear")
 
 os.system("setterm -cursor on")
 GPIO.cleanup()
