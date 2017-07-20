@@ -50,3 +50,4 @@ while continue_reading:
         if count > 7:
             print "OK!"
             continue_reading = False
+            GPIO.cleanup()
