@@ -26,8 +26,8 @@ sw_status = 1
 ######## PREPARE RED LED ###############
 ########################################
 
-os.system("setterm -cursor off")
-os.system("clear")
+# os.system("setterm -cursor off")
+# os.system("clear")
 
 GPIO.output(led_red_pin,GPIO.HIGH)
 
@@ -57,6 +57,7 @@ os.system("omxplayer --refresh ps.mp4")
 
 # This is asynchronous
 process = Popen(["/opt/retropie/emulators/retroarch/bin/retroarch", "-L", "/opt/retropie/libretrocores/lr-pcsx-rearmed/libretro.so", "/home/pi/RetroPie/roms/psx/kurassyu_01.iso"])
+print "Debug 1"
 
 time.sleep(4)
 process.send_signal(signal.SIGINT)
@@ -118,6 +119,6 @@ process.wait()
 # process.wait()
 # os.system("/opt/retropie/emulators/retroarch/bin/retroarch --fullscreen -L /opt/retropie/libretrocores/lr-pcsx-rearmed/libretro.so ~/RetroPie/roms/psx/doko_01.iso")
 
-os.system("setterm -cursor on")
+# os.system("setterm -cursor on")
 
 GPIO.cleanup()
