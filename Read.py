@@ -47,7 +47,7 @@ while continue_reading:
 
         count += 1
 
-        if count > 7
+        if count > 7:
             global continue_reading
             print "OK!"
             continue_reading = False
