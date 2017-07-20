@@ -4,7 +4,7 @@ from subprocess import Popen
 
 def start_process(stdout):
     # no need for `global logger` you don't assign to it
-    command = ['omxplayer --refresh ps.mp4']
+    command = ["/opt/retropie/emulators/retroarch/bin/retroarch -L /opt/retropie/libretrocores/lr-pcsx-rearmed/libretro.so ~/RetroPie/roms/psx/kurassyu_01.iso"]
     logger.debug(command) # no need for if(debug); set logging level instead
     return Popen(command, stdout=stdout) # run directly
 
