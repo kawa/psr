@@ -108,6 +108,7 @@ while continue_reading:
 ######## RFID SCAN! PLAY GAME 2 ########
 ########################################
 
+os.system("clear")
 process.send_signal(signal.SIGINT)
 process.wait()
 os.system("/opt/retropie/emulators/retroarch/bin/retroarch --fullscreen -L /opt/retropie/libretrocores/lr-pcsx-rearmed/libretro.so ~/RetroPie/roms/psx/doko_01.iso")
