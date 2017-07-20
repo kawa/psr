@@ -16,9 +16,10 @@ GPIO.setup(led_green_pin,GPIO.OUT,initial=GPIO.LOW)
 sw_status = 1
 
 os.system("setterm -cursor off")
+print("hoge")
 os.system("clear")
 
-time.sleep(6);
+#time.sleep(6);
 GPIO.output(led_red_pin,GPIO.HIGH)
 
 while True:
