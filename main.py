@@ -5,6 +5,7 @@ import time
 import signal
 import RPi.GPIO as GPIO
 import MFRC522
+import subprocess
 from subprocess import Popen
 
 ########################################
@@ -48,6 +49,8 @@ GPIO.output(led_green_pin,GPIO.HIGH)
 ######## GAME PLAY! GOOOO ##############
 ########################################
 
+FNULL = open(os.devnull, 'w')
+
 os.system("omxplayer --refresh ps.mp4")
 
 # These are blocking codes
@@ -56,7 +59,7 @@ os.system("omxplayer --refresh ps.mp4")
 #os.system("/opt/retropie/emulators/retroarch/bin/retroarch --fullscreen -L /opt/retropie/libretrocores/lr-pcsx-rearmed/libretro.so ~/RetroPie/roms/psx/doko_01.iso")
 
 # This is asynchronous
-process = Popen(["/opt/retropie/emulators/retroarch/bin/retroarch", "-L", "/opt/retropie/libretrocores/lr-pcsx-rearmed/libretro.so", "/home/pi/RetroPie/roms/psx/kurassyu_01.iso"])
+process = Popen(["/opt/retropie/emulators/retroarch/bin/retroarch", "-L", "/opt/retropie/libretrocores/lr-pcsx-rearmed/libretro.so", "/home/pi/RetroPie/roms/psx/kurassyu_01.iso"], stdout=FNULL, stderr=subprocess.STDOUT)
 
 ########################################
 ######## WAIT FOR RFID SCAN ############
@@ -110,7 +113,7 @@ while continue_reading:
 
 process.send_signal(signal.SIGINT)
 process.wait()
-process = Popen(["/opt/retropie/emulators/retroarch/bin/retroarch", "-L", "/opt/retropie/libretrocores/lr-pcsx-rearmed/libretro.so", "/home/pi/RetroPie/roms/psx/doko_01.iso"])
+process = Popen(["/opt/retropie/emulators/retroarch/bin/retroarch", "-L", "/opt/retropie/libretrocores/lr-pcsx-rearmed/libretro.so", "/home/pi/RetroPie/roms/psx/doko_01.iso"], stdout=FNULL, stderr=subprocess.STDOUT)
 
 os.system("setterm -cursor on")
 GPIO.cleanup()
