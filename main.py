@@ -1,10 +1,11 @@
 #!/usr/bin/python
 # coding:utf-8
-import time
 import os
+import time
+import signal
 import RPi.GPIO as GPIO
 import MFRC522
-import signal
+from subprocess import Popen
 
 ########################################
 ######## SETUP GPIO PINS ###############
