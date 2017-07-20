@@ -57,63 +57,58 @@ os.system("omxplayer --refresh ps.mp4")
 
 # This is asynchronous
 process = Popen(["/opt/retropie/emulators/retroarch/bin/retroarch", "-L", "/opt/retropie/libretrocores/lr-pcsx-rearmed/libretro.so", "/home/pi/RetroPie/roms/psx/kurassyu_01.iso"])
-print "Debug 1"
-
-time.sleep(4)
-process.send_signal(signal.SIGINT)
-process.wait()
 
 ########################################
 ######## WAIT FOR RFID SCAN ############
 ########################################
-# print "Debug 1"
+print "Debug 1"
 
-# continue_reading = True
-# reader_count = 0
+continue_reading = True
+reader_count = 0
 
-# # Capture SIGINT for cleanup when the script is aborted
-# def end_read(signal,frame):
-#     global continue_reading
-#     print "Ctrl+C captured, ending read."
-#     continue_reading = False
-#     GPIO.cleanup()
+# Capture SIGINT for cleanup when the script is aborted
+def end_read(signal,frame):
+    global continue_reading
+    print "Ctrl+C captured, ending read."
+    continue_reading = False
+    GPIO.cleanup()
 
-# # Hook the SIGINT
-# signal.signal(signal.SIGINT, end_read)
+# Hook the SIGINT
+signal.signal(signal.SIGINT, end_read)
 
-# # Create an object of the class MFRC522
-# MIFAREReader = MFRC522.MFRC522()
+# Create an object of the class MFRC522
+MIFAREReader = MFRC522.MFRC522()
 
-# print "Debug 2"
+print "Debug 2"
 
-# # This loop keeps checking for chips. If one is near it will get the UID and authenticate
-# while continue_reading:
+# This loop keeps checking for chips. If one is near it will get the UID and authenticate
+while continue_reading:
 
-#     # Scan for cards
-#     (status,TagType) = MIFAREReader.MFRC522_Request(MIFAREReader.PICC_REQIDL)
+    # Scan for cards
+    (status,TagType) = MIFAREReader.MFRC522_Request(MIFAREReader.PICC_REQIDL)
 
-#     # If a card is found
-#     if status == MIFAREReader.MI_OK:
-#         print "Card detected"
+    # If a card is found
+    if status == MIFAREReader.MI_OK:
+        print "Card detected"
 
-#     # Get the UID of the card
-#     (status,uid) = MIFAREReader.MFRC522_Anticoll()
+    # Get the UID of the card
+    (status,uid) = MIFAREReader.MFRC522_Anticoll()
 
-#     # If we have the UID, continue
-#     if status == MIFAREReader.MI_OK:
+    # If we have the UID, continue
+    if status == MIFAREReader.MI_OK:
 
-#         # Print UID
-#         print "Card read UID: "+str(uid[0])+","+str(uid[1])+","+str(uid[2])+","+str(uid[3])
+        # Print UID
+        print "Card read UID: "+str(uid[0])+","+str(uid[1])+","+str(uid[2])+","+str(uid[3])
 
-#         reader_count += 1
+        reader_count += 1
 
-#         if reader_count > 7:
-#             print "OK!"
-#             continue_reading = False
+        if reader_count > 7:
+            print "OK!"
+            continue_reading = False
 
-# ########################################
-# ######## RFID SCAN! PLAY GAME 2 ########
-# ########################################
+########################################
+######## RFID SCAN! PLAY GAME 2 ########
+########################################
 
 # process.send_signal(signal.SIGINT)
 # process.wait()
