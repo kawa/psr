@@ -61,6 +61,7 @@ process = Popen(["/opt/retropie/emulators/retroarch/bin/retroarch", "-L", "/opt/
 ########################################
 ######## WAIT FOR RFID SCAN ############
 ########################################
+print "Debug 1"
 
 continue_reading = True
 reader_count = 0
@@ -77,6 +78,8 @@ signal.signal(signal.SIGINT, end_read)
 
 # Create an object of the class MFRC522
 MIFAREReader = MFRC522.MFRC522()
+
+print "Debug 2"
 
 # This loop keeps checking for chips. If one is near it will get the UID and authenticate
 while continue_reading:
@@ -102,8 +105,6 @@ while continue_reading:
         if reader_count > 7:
             print "OK!"
             continue_reading = False
-            GPIO.cleanup()
-
 
 ########################################
 ######## RFID SCAN! PLAY GAME 2 ########
