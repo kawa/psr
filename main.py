@@ -11,10 +11,10 @@ from subprocess import Popen
 ######## SETUP GPIO PINS ###############
 ########################################
 
-GPIO.setmode(GPIO.BCM)
-button_pin = 21
-led_red_pin = 20
-led_green_pin = 16
+GPIO.setmode(GPIO.BOARD)
+button_pin = 40 # BCM = 21
+led_red_pin = 38 # BCM = 20
+led_green_pin = 36 # BCM = 16
 
 GPIO.setup(button_pin,GPIO.IN,pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(led_red_pin,GPIO.OUT,initial=GPIO.LOW)
@@ -48,7 +48,7 @@ GPIO.output(led_green_pin,GPIO.HIGH)
 ######## GAME PLAY! GOOOO ##############
 ########################################
 
-os.system("omxplayer --refresh ps.mp4")
+# os.system("omxplayer --refresh ps.mp4")
 
 # These are blocking codes
 #os.system("/opt/retropie/emulators/retroarch/bin/retroarch -L /opt/retropie/libretrocores/lr-pcsx-rearmed/libretro.so ~/RetroPie/roms/psx/kurassyu_01.iso")
