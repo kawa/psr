@@ -75,7 +75,7 @@ def end_read(signal,frame):
     continue_reading = False
     process.send_signal(signal.SIGINT)
     process.wait()
-    GPIO.cleanup()
+    # GPIO.cleanup()
 
 # Hook the SIGINT
 signal.signal(signal.SIGINT, end_read)
