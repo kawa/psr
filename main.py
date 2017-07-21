@@ -12,6 +12,7 @@ from subprocess import Popen
 ######## SETUP GPIO PINS ###############
 ########################################
 
+GPIO.cleanup()
 GPIO.setmode(GPIO.BOARD)
 button_pin = 40 # BCM = 21
 led_red_pin = 38 # BCM = 20
