@@ -114,7 +114,7 @@ while continue_reading:
 
 process.send_signal(signal.SIGINT)
 process.wait()
-os.system("/opt/retropie/emulators/retroarch/bin/retroarch -L /opt/retropie/libretrocores/lr-pcsx-rearmed/libretro.so ~/RetroPie/roms/psx/ace2_01.iso")
+os.system("/opt/retropie/emulators/retroarch/bin/retroarch -L /opt/retropie/libretrocores/lr-pcsx-rearmed/libretro.so ~/RetroPie/roms/psx/lego.iso")
 
 os.system("setterm -cursor on")
 GPIO.cleanup()
